@@ -1,0 +1,30 @@
+def name ="dalong";
+
+task demoapp{
+   print "this is a demo ${name}";
+}
+
+task appdemo {
+
+     def source = new File('source.xml')
+     def output = new File('output.txt')
+       // Define input file
+       inputs.file source
+       // Define output file
+       outputs.file output
+       doLast {
+           def xml = new XmlSlurper().parse(source)
+           output.withPrintWriter { writer ->
+               xml.person.each { person ->
+                   writer.println "${person.name},${person.email}"
+       } }
+           println "Converted ${source.name} to ${output.name}"
+       }
+
+}
+
+task myfile {
+
+    def myfile =file("source.xml");
+    println "${myfile}"
+}
