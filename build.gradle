@@ -1,7 +1,6 @@
 def name ="dalong";
-
 task demoapp{
-   print "this is a demo ${name}";
+   print "this is adddd demo ${name}";
 }
 
 task appdemo {
